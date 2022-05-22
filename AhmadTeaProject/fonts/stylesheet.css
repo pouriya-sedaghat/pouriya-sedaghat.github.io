@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Yekan';
+    src: url('Yekan.woff2') format('woff2'),
+        url('Yekan.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
