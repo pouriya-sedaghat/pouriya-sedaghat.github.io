@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>snake project</title>
+    <link rel="stylesheet" href="css/bootstrap-5.2.0-beta1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center custom-height">
+            <!-- Play It! -->
+            <div class="col-6 px-0 overflow-hidden">
+                <div class="border rounded-2 position-relative mx-auto template">
+                    <i class="bi bi-share-fill position-absolute icon"></i>
+                    <h2 class="my-2 mx-2">Snake</h2>
+                    <div>
+                        <img src="images/cta_alt.png" alt="Snake" class="img-fluid img-design">
+                    </div>
+                    <button class="btn btn-outline-primary d-block mx-auto my-2">Play It!</button>
+                </div>
+            </div>
+            <!-- Modal : One Time Of Game display none -->
+            <div class="col-12 px-0 d-flex justify-content-center align-items-center position-absolute modal-template">
+                <div class="position-relative modal-tmp-child">
+
+                    <!-- Modal Chailds  -->
+
+                    <!-- Instruction -->
+                    <div class="position-absolute rounded-4 overflow-hidden snake-instruction">
+                        <div class="w-50 mx-auto img-ins">
+                            <img src="images/instruction.png" alt="Instruction" class="img-fluid w-100">
+                        </div>
+                    </div>
+                    <!-- First Child -->
+                    <div class="d-flex justify-content-between align-items-center px-4 mtc-first-child">
+                        <div class="d-flex justify-content-between align-items-center appleAndcup">
+                            <div class="d-flex justify-content-between align-items-center alppleVpoint">
+                                <img src="images/apple_00.png" alt="" class="img-fluid custom-sizing">
+                                <span class="mx-1 point-1">0</span>
+                            </div>
+                            <!-- One Time Of Game display none for cupVpoint -->
+                            <div class="d-none justify-content-between align-items-center cupVpoint">
+                                <img src="images/trophy_00.png" alt="" class="img-fluid custom-sizing">
+                                <span class="mx-1 point-2">0</span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center soundAndclose">
+                            <img src="images/volume_up_white_24dp.png" alt="Sound" class="img-fluid sound">
+                            <i class="bi bi-plus-lg cumstom-icon"></i>
+                        </div>
+                    </div>
+                    <!-- Second Child -->
+                    <div class="d-flex justify-content-around align-items-center mtc-second-child">
+                        <div class="d-flex flex-wrap snake">
+                            <div class="bg-primary lastElement"></div>
+                            <div class="bg-primary middelElement"></div>
+                            <div class="bg-primary firstElement"></div>
+                        </div>
+                        <img src="images/apple_00.png" alt="Apple" class="img-fluid custom-sizing bait">
+                    </div>
+                </div>
+                <!-- Play Settings -->
+                <div class="d-flex justify-content-center align-items-center position-absolute playSettings-template">
+                    <div class="playSettings">
+                        <div class="w-100 rounded-2 pic">
+                            <div class="w-100 d-flex justify-content-evenly py-5 applevcupp">
+                                <div class="appVpoint">
+                                    <img src="images/apple_00.png" alt="Apple" class="img-fluid cus-siz-sett">
+                                    <span class="d-block fs-span">0</span>
+                                </div>
+                                <div class="cupVpoint">
+                                    <img src="images/trophy_00.png" alt="Cup" class="img-fluid cus-siz-sett">
+                                    <span class="d-block fs-span">0</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center my-2 buttom-template">
+                            <button class="btn btn-primary d-flex justify-content-center align-items-center playGame"><i
+                                    class="bi bi-play ic-play"></i> Play</button>
+                            <button class="btn btn-primary settings"><i class="bi bi-gear"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
