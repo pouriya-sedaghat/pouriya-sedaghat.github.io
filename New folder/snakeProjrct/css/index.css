@@ -29,6 +29,7 @@ h2 {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(5px);
+  display: none;
 }
 
 .modal-tmp-child {
@@ -91,56 +92,180 @@ span {
   background-position: center;
 }
 
-.snake {
-  width: fit-content;
-  height: fit-content;
-  margin-left: 80px;
+.map-tamplate {
+  width: 545px;
+  height: 480px;
 }
 
-.lastElement {
-  width: 31px;
-  height: 26px;
-  margin-right: -4px;
-  border-radius: 13px 0px 0px 13px;
+.pixel {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
 }
 
-.middelElement {
-  width: 31px;
-  height: 26px;
-  margin-right: -4px;
+.lastHRElement {
+  background-color: #4573e8;
+  border-radius: 16px 0px 0px 16px;
 }
 
-.firstElement {
-  width: 31px;
-  height: 26px;
-  margin-right: -4px;
-  border-radius: 0px 13px 13px 0px;
+.middelHRElement {
+  background-color: #4573e8;
 }
 
-.firstElement::before {
+.firstHRElement {
+  background-color: #4573e8;
+  border-radius: 0px 16px 16px 0px;
+}
+
+.firstHRElement::before {
   content: "";
   display: block;
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background-color: rgba(30, 30, 30, 0.7);
+  border: 4px solid white;
   margin-top: -3px;
 }
 
-.firstElement::after {
+.firstHRElement::after {
   content: "";
   display: block;
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background-color: rgba(30, 30, 30, 0.7);
-  margin-top: 6px;
+  border: 4px solid white;
+  margin-top: 10px;
+}
+
+.lastHLElement {
+  background-color: #4573e8;
+  border-radius: 0px 16px 16px 0px;
+}
+
+.middelHLElement {
+  background-color: #4573e8;
+}
+
+.firstHLElement {
+  background-color: #4573e8;
+  border-radius: 16px 0px 0px 16px;
+}
+
+.firstHLElement::before {
+  content: "";
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgba(30, 30, 30, 0.7);
+  border: 4px solid white;
+  margin-left: 17px;
+  margin-top: -3px;
+}
+
+.firstHLElement::after {
+  content: "";
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgba(30, 30, 30, 0.7);
+  border: 4px solid white;
+  margin-left: 17px;
+  margin-top: 10px;
+}
+
+.lastVDElement {
+  background-color: #4573e8;
+  border-radius: 16px 16px 0px 0px;
+}
+
+.middelVDElement {
+  background-color: #4573e8;
+}
+
+.firstVDElement {
+  background-color: #4573e8;
+  border-radius: 0px 0px 16px 16px;
+}
+
+.firstVDElement::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgba(30, 30, 30, 0.7);
+  border: 4px solid white;
+  position: absolute;
+  margin-top: 2px;
+  margin-left: -4px;
+}
+
+.firstVDElement::after {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgba(30, 30, 30, 0.7);
+  border: 4px solid white;
+  position: absolute;
+  margin-top: 2px;
+  margin-left: 23px;
+}
+
+.lastVUElement {
+  background-color: #4573e8;
+  border-radius: 0px 0px 16px 16px;
+}
+
+.middelVUElement {
+  background-color: #4573e8;
+}
+
+.firstVUElement {
+  background-color: #4573e8;
+  border-radius: 16px 16px 0px 0px;
+}
+
+.firstVUElement::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgba(30, 30, 30, 0.7);
+  border: 4px solid white;
+  position: absolute;
+  margin-top: 17px;
+  margin-left: -4px;
+}
+
+.firstVUElement::after {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgba(30, 30, 30, 0.7);
+  border: 4px solid white;
+  position: absolute;
+  margin-top: 17px;
+  margin-left: 23px;
+}
+
+.bait {
+  z-index: 2;
 }
 
 .playSettings-template {
   width: 600px;
   height: 600px;
   background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
 }
 
 .playSettings {
@@ -176,4 +301,27 @@ span {
 
 .settings {
   width: 60px;
+}
+
+@keyframes modalShow {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+.showModal {
+  display: flex !important;
+  animation: "modalShow" 1.5s ease 0s 1 normal forwards running;
+}
+
+.removePlaySetting {
+  animation: "modalShow" 1.5s ease 0s 1 normal forwards running;
+  display: none;
+}
+
+.showPlaySetting {
+  display: flex;
 }
