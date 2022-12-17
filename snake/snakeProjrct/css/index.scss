@@ -34,7 +34,6 @@ h2 {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(5px);
-    display: none;
 }
 
 .modal-tmp-child {
@@ -100,191 +99,50 @@ span {
 }
 
 // snake
-// .snake {
-//     width: fit-content;
-//     height: fit-content;
-//     position: relative;
-//     z-index: 3;
-// }
-
-// snake map
-
-.map-tamplate {
-    width: 545px;
-    height: 480px;
+.snake {
+    width: fit-content;
+    height: fit-content;
+    margin-left: 80px;
 }
 
-.pixel {
-    width: 32px;
-    height: 32px;
-    display: inline-block;
-    // background-color: rgba(200, 200, 200, 0.5);
+.lastElement {
+    width: 31px;
+    height: 26px;
+    margin-right: -4px;
+    border-radius: 13px 0px 0px 13px;
 }
 
-// Horizental
-
-// Horizental Right
-.lastHRElement {
-    background-color: rgb(69, 115, 232);
-    border-radius: 16px 0px 0px 16px;
+.middelElement {
+    width: 31px;
+    height: 26px;
+    margin-right: -4px;
 }
 
-.middelHRElement {
-    background-color: rgb(69, 115, 232);
+.firstElement {
+    width: 31px;
+    height: 26px;
+    margin-right: -4px;
+    border-radius: 0px 13px 13px 0px;
 }
 
-.firstHRElement {
-    background-color: rgb(69, 115, 232);
-    border-radius: 0px 16px 16px 0px;
-}
-
-.firstHRElement::before {
+.firstElement::before {
     content: "";
     display: block;
-    width: 14px;
-    height: 14px;
+    width: 13px;
+    height: 13px;
     border-radius: 50%;
     background-color: rgba(30, 30, 30, 0.7);
-    border: 4px solid white;
     margin-top: -3px;
 }
 
-.firstHRElement::after {
+.firstElement::after {
     content: "";
     display: block;
-    width: 14px;
-    height: 14px;
+    width: 13px;
+    height: 13px;
     border-radius: 50%;
     background-color: rgba(30, 30, 30, 0.7);
-    border: 4px solid white;
-    margin-top: 10px;
-}
-
-// Horizental Left
-.lastHLElement {
-    background-color: rgb(69, 115, 232);
-    border-radius: 0px 16px 16px 0px;
-}
-
-.middelHLElement {
-    background-color: rgb(69, 115, 232);
-}
-
-.firstHLElement {
-    background-color: rgb(69, 115, 232);
-    border-radius: 16px 0px 0px 16px;
-}
-
-.firstHLElement::before {
-    content: "";
-    display: block;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background-color: rgba(30, 30, 30, 0.7);
-    border: 4px solid white;
-    margin-left: 17px;
-    margin-top: -3px;
-}
-
-.firstHLElement::after {
-    content: "";
-    display: block;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background-color: rgba(30, 30, 30, 0.7);
-    border: 4px solid white;
-    margin-left: 17px;
-    margin-top: 10px;
-}
-
-// Verticl
-
-// Verticl Down
-.lastVDElement {
-    background-color: rgb(69, 115, 232);
-    border-radius: 16px 16px 0px 0px;
-}
-
-.middelVDElement {
-    background-color: rgb(69, 115, 232);
-}
-
-.firstVDElement {
-    background-color: rgb(69, 115, 232);
-    border-radius: 0px 0px 16px 16px;
-}
-
-.firstVDElement::before {
-    content: "";
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background-color: rgba(30, 30, 30, 0.7);
-    border: 4px solid white;
-    position: absolute;
-    margin-top: 2px;
-    margin-left: -4px;
-}
-
-.firstVDElement::after {
-    content: "";
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background-color: rgba(30, 30, 30, 0.7);
-    border: 4px solid white;
-    position: absolute;
-    margin-top: 2px;
-    margin-left: 23px;
-}
-
-// Verticl Up
-.lastVUElement {
-    background-color: rgb(69, 115, 232);
-    border-radius: 0px 0px 16px 16px;
-}
-
-.middelVUElement {
-    background-color: rgb(69, 115, 232);
-}
-
-.firstVUElement {
-    background-color: rgb(69, 115, 232);
-    border-radius: 16px 16px 0px 0px;
-}
-
-.firstVUElement::before {
-    content: "";
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background-color: rgba(30, 30, 30, 0.7);
-    border: 4px solid white;
-    position: absolute;
-    margin-top: 17px;
-    margin-left: -4px;
-}
-
-.firstVUElement::after {
-    content: "";
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background-color: rgba(30, 30, 30, 0.7);
-    border: 4px solid white;
-    position: absolute;
-    margin-top: 17px;
-    margin-left: 23px;
-}
-
-.bait {
-    z-index: 2;
+    margin-top: 6px;
 }
 
 // PlaySettings
@@ -292,7 +150,6 @@ span {
     width: 600px;
     height: 600px;
     background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
 }
 
 .playSettings {
@@ -312,11 +169,9 @@ span {
 .cus-siz-sett {
     width: 70px;
 }
-
-.fs-span {
+.fs-span{
     font-size: 20px;
 }
-
 .playGame {
     width: 230px;
 }
@@ -328,33 +183,4 @@ span {
 
 .settings {
     width: 60px;
-}
-
-// script
-@mixin animate1($apn: "modalShow", $ad: 1.5s, $atf: ease, $ade: 0s, $aic: 1, $adi: normal, $afm: forwards, $aps: running) {
-    animation: $apn $ad $atf $ade $aic $adi $afm $aps;
-}
-
-@keyframes modalShow {
-    from {
-        opacity: 0%;
-    }
-
-    to {
-        opacity: 100%;
-    }
-}
-
-.showModal {
-    display: flex !important;
-    @include animate1();
-}
-
-.removePlaySetting {
-    @include animate1();
-    display: none;
-}
-
-.showPlaySetting {
-    display: flex;
 }
