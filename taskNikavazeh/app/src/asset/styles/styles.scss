@@ -1,0 +1,1014 @@
+@import 'variables.scss';
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+
+@mixin fonts($ff: $font-family, $fw: $fw-300, $fs: $font-size) {
+    font-family: $ff;
+    font-weight: $fw;
+    font-size: $fs;
+}
+
+@mixin custom-transiton($tp: all, $td: 250ms, $ttf: linear, $tde: 0s) {
+    -webkit-transition: $tp $td $ttf $tde;
+    -moz-transition: $tp $td $ttf $tde;
+    -ms-transition: $tp $td $ttf $tde;
+    -o-transition: $tp $td $ttf $tde;
+    transition: $tp $td $ttf $tde;
+}
+
+@mixin custom-transform($tf: rotateZ(180deg), $tfo: center) {
+    -webkit-transform: $tf;
+    -moz-transform: $tf;
+    -ms-transform: $tf;
+    -o-transform: $tf;
+    transform: $tf;
+    transform-origin: $tfo;
+}
+
+@mixin custom-animation($name: show, $ad: 500ms, $atf: linear, $ade: 0s) {
+    -webkit-animation: $name $ad $atf $ade;
+    -moz-animation: $name $ad $atf $ade;
+    -ms-animation: $name $ad $atf $ade;
+    -o-animation: $name $ad $atf $ade;
+    animation: $name $ad $atf $ade;
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.header {
+    background-color: $color-dark-mode;
+}
+
+.header-dark-mode {
+    color: $color-dark-mode;
+    background-color: $bg-header-dark-mode;
+}
+
+.rotate {
+    @include custom-transform();
+}
+
+.without-rotate {
+    @include custom-transform(rotateZ(0deg));
+}
+
+.my-input {
+
+    &>div:first-of-type>div {
+        &>div:first-of-type {
+            box-shadow: $shadow;
+            background-color: $color-dark-mode;
+            width: fit-content;
+
+            label {
+                cursor: text;
+            }
+
+            input {
+                outline: 0;
+                caret-color: red;
+
+                &:focus {
+                    border-bottom: 1px solid blue !important;
+                }
+            }
+        }
+
+        &>div:last-of-type {
+            box-shadow: $shadow;
+            background-color: $color-dark-mode;
+            width: fit-content;
+            cursor: pointer;
+
+            ul {
+                list-style-type: none;
+
+                li {
+                    ol {
+                        width: max-content;
+                        box-shadow: $shadow;
+                        background-color: $color-dark-mode;
+                        list-style-type: none;
+                        top: 30px;
+                        left: -12px;
+
+                        li {
+                            span {
+                                display: block;
+                                @include custom-transiton();
+
+                                &:hover {
+                                    background-color: rgba(170, 170, 170, 0.4);
+                                }
+                            }
+                        }
+                    }
+
+                    .open-ol {
+                        @include custom-animation();
+                    }
+
+                    .close-ol {
+                        display: none;
+                    }
+
+                    i {
+                        @include custom-transiton();
+                    }
+                }
+            }
+        }
+    }
+
+    &>div:last-of-type>div {
+        &>div {
+            background-color: $color-dark-mode;
+            box-shadow: 0 0 5px 2px rgba(170, 170, 170, 0.4);
+        }
+    }
+}
+
+.my-input-dark {
+    color: $color-dark-mode;
+
+    &>div:first-of-type>div {
+        &>div:first-of-type {
+            box-shadow: $shadow;
+            background-color: $bg-header-dark-mode;
+            border: 1px solid $color-dark-mode;
+            width: fit-content;
+
+            label {
+                cursor: text;
+            }
+
+            input {
+                outline: 0;
+                caret-color: $color-dark-mode;
+                color: $color-dark-mode;
+
+                &:focus {
+                    border-bottom: 1px solid blue !important;
+                }
+            }
+        }
+
+        &>div:last-of-type {
+            box-shadow: $shadow;
+            background-color: $bg-header-dark-mode;
+            border: 1px solid $color-dark-mode;
+            cursor: pointer;
+            width: fit-content;
+
+            ul {
+                list-style-type: none;
+
+                li {
+                    ol {
+                        width: max-content;
+                        box-shadow: $shadow;
+                        background-color: $bg-header-dark-mode;
+                        border: 1px solid $color-dark-mode;
+                        list-style-type: none;
+
+                        li {
+                            span {
+                                display: block;
+                                @include custom-transiton();
+
+                                &:hover {
+                                    background-color: rgba(170, 170, 170, 0.4);
+                                }
+                            }
+                        }
+                    }
+
+                    .open-ol {
+                        @include custom-animation();
+                    }
+
+                    .close-ol {
+                        display: none;
+                    }
+
+                    i {
+                        @include custom-transiton();
+                    }
+                }
+            }
+        }
+    }
+
+    &>div:last-of-type>div {
+        &>div {
+            background-color: $bg-header-dark-mode;
+        }
+    }
+}
+
+.info-country {
+    &>div {
+        &>div:last-of-type {
+            & span:not(:first-of-type) {
+                color: gray;
+            }
+        }
+    }
+}
+
+.info-country-dark {
+    &>div {
+        &>div:last-of-type {
+
+            & span,
+            h3 {
+                color: $color-dark-mode;
+            }
+
+            & span:not(:first-of-type) {
+                color: rgb(177, 177, 177);
+            }
+        }
+    }
+}
+
+@media all and (max-width:575px) {
+    .header {
+        @include fonts($font-family, $fw-800, calc(7px + 1vw));
+
+        i,
+        p {
+            @include fonts($font-family, $fw-600, calc(7px + 1vw));
+        }
+    }
+
+    .header-dark-mode {
+        @include fonts($font-family, $fw-800, calc(7px + 1vw));
+
+        i,
+        p {
+            @include fonts($font-family, $fw-600, calc(7px + 1vw));
+        }
+    }
+
+    .my-input {
+        @include fonts($font-family, $fw-300, calc(7px + 1vw));
+
+        &>div:first-of-type>div {
+
+            &>div:last-of-type {
+
+                ul {
+                    li {
+                        ol {
+                            li {
+                                span {
+                                    padding: 2px 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &>div:last-of-type>div {
+            &>div {
+                width: 80vw;
+
+                &>a {
+                    &>div:first-of-type {
+                        img {
+                            height: 50vw !important;
+                        }
+                    }
+
+                    &>div:last-of-type {
+                        b {
+                            @include fonts($font-family, $fw-800, calc(7px + 1vw));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .my-input-dark {
+        @include fonts($font-family, $fw-300, calc(7px + 1vw));
+
+        &>div:first-of-type>div {
+
+            &>div:last-of-type {
+
+                ul {
+
+                    li {
+                        ol {
+                            li {
+                                span {
+                                    padding: 2px 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &>div:last-of-type>div {
+            &>div {
+                width: 80vw;
+
+                &>a {
+                    &>div:first-of-type {
+                        img {
+                            height: 50vw !important;
+                        }
+                    }
+
+                    &>div:last-of-type {
+                        b {
+                            @include fonts($font-family, $fw-800, calc(7px + 1vw));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .info-country {
+
+        & h3 {
+            @include fonts($font-family, $fw-800, calc(9px + 1vw));
+        }
+
+        &,
+        & a {
+            @include fonts($font-family, $fw-800, calc(7px + 1vw));
+        }
+    }
+
+    .info-country-dark {
+
+        & h3 {
+            @include fonts($font-family, $fw-800, calc(9px + 1vw));
+        }
+
+        &,
+        & a {
+            @include fonts($font-family, $fw-800, calc(7px + 1vw));
+        }
+    }
+}
+
+@media all and (min-width:576px) and (max-width:767px) {
+    .header {
+        @include fonts($font-family, $fw-800, calc(5.5px + 1vw));
+
+        i,
+        p {
+            @include fonts($font-family, $fw-600, calc(5.5px + 1vw));
+        }
+    }
+
+    .header-dark-mode {
+        @include fonts($font-family, $fw-800, calc(5.5px + 1vw));
+
+        i,
+        p {
+            @include fonts($font-family, $fw-600, calc(5.5px + 1vw));
+        }
+    }
+
+    .my-input {
+        @include fonts($font-family, $fw-300, calc(5.5px + 1vw));
+
+        &>div:first-of-type>div {
+
+            &>div:last-of-type {
+
+                ul {
+                    li {
+                        ol {
+                            li {
+                                span {
+                                    padding: 2px 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &>div:last-of-type>div {
+            &>div {
+                width: 40vw;
+
+                &>a {
+                    &>div:first-of-type {
+                        img {
+                            height: 25vw !important;
+                        }
+                    }
+
+                    &>div:last-of-type {
+                        b {
+                            @include fonts($font-family, $fw-800, calc(5.5px + 1vw));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .my-input-dark {
+        @include fonts($font-family, $fw-300, calc(5.5px + 1vw));
+
+        &>div:first-of-type>div {
+
+            &>div:last-of-type {
+
+                ul {
+
+                    li {
+                        ol {
+                            li {
+                                span {
+                                    padding: 2px 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &>div:last-of-type>div {
+            &>div {
+                width: 40vw;
+
+                &>a {
+                    &>div:first-of-type {
+                        img {
+                            height: 25vw !important;
+                        }
+                    }
+
+                    &>div:last-of-type {
+                        b {
+                            @include fonts($font-family, $fw-800, calc(5.5px + 1vw));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .info-country {
+
+        & h3 {
+            @include fonts($font-family, $fw-800, calc(7.5px + 1vw));
+        }
+
+        &,
+        & a {
+            @include fonts($font-family, $fw-800, calc(5.5px + 1vw));
+        }
+    }
+
+    .info-country-dark {
+
+        & h3 {
+            @include fonts($font-family, $fw-800, calc(7.5px + 1vw));
+        }
+
+        &,
+        & a {
+            @include fonts($font-family, $fw-800, calc(5.5px + 1vw));
+        }
+    }
+}
+
+@media all and (min-width:768px) and (max-width:991px) {
+    .header {
+        @include fonts($font-family, $fw-800, calc(3.5px + 1vw));
+
+        i,
+        p {
+            @include fonts($font-family, $fw-600, calc(3.5px + 1vw));
+        }
+    }
+
+    .header-dark-mode {
+        @include fonts($font-family, $fw-800, calc(3.5px + 1vw));
+
+        i,
+        p {
+            @include fonts($font-family, $fw-600, calc(3.5px + 1vw));
+        }
+    }
+
+    .my-input {
+        @include fonts($font-family, $fw-300, calc(3.5px + 1vw));
+
+        &>div:first-of-type>div {
+
+            &>div:last-of-type {
+
+                ul {
+                    li {
+                        ol {
+                            li {
+                                span {
+                                    padding: 2px 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &>div:last-of-type>div {
+            &>div {
+                width: 40vw;
+
+                &>a {
+                    &>div:first-of-type {
+                        img {
+                            height: 25vw !important;
+                        }
+                    }
+
+                    &>div:last-of-type {
+                        b {
+                            @include fonts($font-family, $fw-800, calc(3.5px + 1vw));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .my-input-dark {
+        @include fonts($font-family, $fw-300, calc(3.5px + 1vw));
+
+        &>div:first-of-type>div {
+
+            &>div:last-of-type {
+
+                ul {
+
+                    li {
+                        ol {
+                            li {
+                                span {
+                                    padding: 2px 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &>div:last-of-type>div {
+            &>div {
+                width: 40vw;
+
+                &>a {
+                    &>div:first-of-type {
+                        img {
+                            height: 25vw !important;
+                        }
+                    }
+
+                    &>div:last-of-type {
+                        b {
+                            @include fonts($font-family, $fw-800, calc(3.5px + 1vw));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .info-country {
+
+        & h3 {
+            @include fonts($font-family, $fw-800, calc(5px + 1vw));
+        }
+
+        &,
+        & a {
+            @include fonts($font-family, $fw-800, calc(3.5px + 1vw));
+        }
+    }
+
+    .info-country-dark {
+
+        & h3 {
+            @include fonts($font-family, $fw-800, calc(5px + 1vw));
+        }
+
+        &,
+        & a {
+            @include fonts($font-family, $fw-800, calc(3.5px + 1vw));
+        }
+    }
+}
+
+@media all and (min-width:992px) and (max-width:1199px) {
+    .header {
+        @include fonts($font-family, $fw-800, calc(1.5px + 1vw));
+
+        i,
+        p {
+            @include fonts($font-family, $fw-600, calc(1.5px + 1vw));
+        }
+    }
+
+    .header-dark-mode {
+        @include fonts($font-family, $fw-800, calc(1.5px + 1vw));
+
+        i,
+        p {
+            @include fonts($font-family, $fw-600, calc(1.5px + 1vw));
+        }
+    }
+
+    .my-input {
+        @include fonts($font-family, $fw-300, calc(1.5px + 1vw));
+
+        &>div:first-of-type>div {
+
+            &>div:last-of-type {
+
+                ul {
+                    li {
+                        ol {
+                            li {
+                                span {
+                                    padding: 2px 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &>div:last-of-type>div {
+            &>div {
+                width: 21vw;
+
+                &>a {
+                    &>div:first-of-type {
+                        img {
+                            height: 11.85vw !important;
+                        }
+                    }
+
+                    &>div:last-of-type {
+                        b {
+                            @include fonts($font-family, $fw-800, calc(1.5px + 1vw));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .my-input-dark {
+        @include fonts($font-family, $fw-300, calc(1.5px + 1vw));
+
+        &>div:first-of-type>div {
+
+            &>div:last-of-type {
+
+                ul {
+
+                    li {
+                        ol {
+                            li {
+                                span {
+                                    padding: 2px 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &>div:last-of-type>div {
+            &>div {
+                width: 21vw;
+
+                &>a {
+                    &>div:first-of-type {
+                        img {
+                            height: 11.85vw !important;
+                        }
+                    }
+
+                    &>div:last-of-type {
+                        b {
+                            @include fonts($font-family, $fw-800, calc(1.5px + 1vw));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .info-country {
+
+        & h3 {
+            @include fonts($font-family, $fw-800, calc(3.5px + 1vw));
+        }
+
+        &,
+        & a {
+            @include fonts($font-family, $fw-800, calc(1.5px + 1vw));
+        }
+    }
+
+    .info-country-dark {
+
+        & h3 {
+            @include fonts($font-family, $fw-800, calc(3.5px + 1vw));
+        }
+
+        &,
+        & a {
+            @include fonts($font-family, $fw-800, calc(1.5px + 1vw));
+        }
+    }
+}
+
+@media all and (min-width:1200px) and (max-width:1399px) {
+    .header {
+        @include fonts($font-family, $fw-800, calc(0.5px + 1vw));
+
+        i,
+        p {
+            @include fonts($font-family, $fw-600, calc(0.5px + 1vw));
+        }
+    }
+
+    .header-dark-mode {
+        @include fonts($font-family, $fw-800, calc(0.5px + 1vw));
+
+        i,
+        p {
+            @include fonts($font-family, $fw-600, calc(0.5px + 1vw));
+        }
+    }
+
+    .my-input {
+        @include fonts($font-family, $fw-300, calc(0.5px + 1vw));
+
+        &>div:first-of-type>div {
+
+            &>div:last-of-type {
+
+                ul {
+                    li {
+                        ol {
+                            li {
+                                span {
+                                    padding: 2px 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &>div:last-of-type>div {
+            &>div {
+                width: 21vw;
+
+                &>a {
+                    &>div:first-of-type {
+                        img {
+                            height: 11.85vw !important;
+                        }
+                    }
+
+                    &>div:last-of-type {
+                        b {
+                            @include fonts($font-family, $fw-800, calc(0.5px + 1vw));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .my-input-dark {
+        @include fonts($font-family, $fw-300, calc(0.5px + 1vw));
+
+        &>div:first-of-type>div {
+
+            &>div:last-of-type {
+
+                ul {
+
+                    li {
+                        ol {
+                            li {
+                                span {
+                                    padding: 2px 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &>div:last-of-type>div {
+            &>div {
+                width: 21vw;
+
+                &>a {
+                    &>div:first-of-type {
+                        img {
+                            height: 11.85vw !important;
+                        }
+                    }
+
+                    &>div:last-of-type {
+                        b {
+                            @include fonts($font-family, $fw-800, calc(0.5px + 1vw));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .info-country {
+
+        & h3 {
+            @include fonts($font-family, $fw-800, calc(3px + 1vw));
+        }
+
+        &,
+        & a {
+            @include fonts($font-family, $fw-800, calc(0.5px + 1vw));
+        }
+    }
+
+    .info-country-dark {
+
+        & h3 {
+            @include fonts($font-family, $fw-800, calc(3px + 1vw));
+        }
+
+        &,
+        & a {
+            @include fonts($font-family, $fw-800, calc(0.5px + 1vw));
+        }
+    }
+}
+
+@media all and (min-width:1400px) {
+    .header {
+        @include fonts($font-family, $fw-800);
+
+        i,
+        p {
+            @include fonts($font-family, $fw-600);
+        }
+    }
+
+    .header-dark-mode {
+        @include fonts($font-family, $fw-800);
+
+        i,
+        p {
+            @include fonts($font-family, $fw-600);
+        }
+    }
+
+    .my-input {
+        @include fonts($font-family, $fw-300);
+
+        &>div:first-of-type>div {
+
+            &>div:last-of-type {
+
+                ul {
+                    li {
+                        ol {
+                            li {
+                                span {
+                                    padding: 2px 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &>div:last-of-type>div {
+            &>div {
+                width: 21vw;
+
+                &>a {
+                    &>div:first-of-type {
+                        img {
+                            height: 11.85vw !important;
+                        }
+                    }
+
+                    &>div:last-of-type {
+                        b {
+                            @include fonts($font-family, $fw-800);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .my-input-dark {
+        @include fonts($font-family, $fw-300);
+
+        &>div:first-of-type>div {
+
+            &>div:last-of-type {
+
+                ul {
+
+                    li {
+                        ol {
+                            li {
+                                span {
+                                    padding: 2px 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &>div:last-of-type>div {
+            &>div {
+                width: 21vw;
+
+                &>a {
+                    &>div:first-of-type {
+                        img {
+                            height: 11.85vw !important;
+                        }
+                    }
+
+                    &>div:last-of-type {
+                        b {
+                            @include fonts($font-family, $fw-800);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .info-country {
+
+        & h3 {
+            @include fonts($font-family, $fw-800, calc(2.5px + 1vw));
+        }
+
+        &,
+        & a {
+            @include fonts($font-family, $fw-600);
+        }
+    }
+
+    .info-country-dark {
+
+        & h3 {
+            @include fonts($font-family, $fw-800, calc(2.5px + 1vw));
+        }
+
+        &,
+        & a {
+            @include fonts($font-family, $fw-600);
+        }
+    }
+}
