@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col } from 'reactstrap';
-import { CHANGE_MODE } from '../redux/slices/mode';
+import { CHANGE_MODE } from 'redux/slices/mode';
 const Mode = () => {
     const { mode } = useSelector(state => state.thisMode);
     const dispacher = useDispatch();

@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Container, Row, Col } from "reactstrap";
-import BackHomePage from './../../base/BackHomePage';
-import FlagCountry from './../../base/FlagCountry';
-import InfoCountry from './../../base/InfoCountry';
+import BackHomePage from 'base/BackHomePage';
+import FlagCountry from 'base/FlagCountry';
+import InfoCountry from 'base/InfoCountry';
 const Country = () => {
     const { country } = useParams();
     const [data, setData] = useState([]);

@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from 'reactstrap';
-import { useToggle } from './../../hooks/useToggle';
+import { useToggle } from 'hooks/useToggle';
 import { useSelector } from 'react-redux';
-import { useOnChangeHandler } from './../../hooks/useOnChangeHandler';
-import SelectRegion from './../../base/SelectRegion';
-import SearchCountry from './../../base/SearchCountry';
-import DefaultRegion from './../../base/DefaultRegion';
-import SelectAndSearchRegion from './../../base/SelectAndSearchRegion';
+import { useOnChangeHandler } from 'hooks/useOnChangeHandler';
+import SelectRegion from 'base/SelectRegion';
+import SearchCountry from 'base/SearchCountry';
+import DefaultRegion from 'base/DefaultRegion';
+import SelectAndSearchRegion from 'base/SelectAndSearchRegion';
 const Home = () => {
     const [data, setData] = useState([]);
     const [toggle, changeToggle, setToggle] = useToggle(false);
