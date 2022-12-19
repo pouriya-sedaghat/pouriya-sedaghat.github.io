@@ -1,5 +1,5 @@
-import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Container, Row, Col } from "reactstrap";
@@ -40,7 +40,7 @@ const Country = () => {
                 setMyFlag(data.find((item) => item.name.common == country).flags.svg);
                 setNativeName(data.find((item) => item.name.common == country).name.nativeName[Object.keys(data.find((item) => item.name.common == country).name.nativeName)[0]].common);
                 setTopLevelDomain(data.find((item) => item.name.common == country).tld.toString());
-                setPopulation(data.find((item) => item.name.common == country).population);
+                setPopulation(data.find((item) => item.name.common == country).population.toLocaleString());
                 setCurrencies(data.find((item) => item.name.common == country).currencies[Object.keys(data.find((item) => item.name.common == country).currencies)[0]].name);
                 setRegion(data.find((item) => item.name.common == country).region);
                 setLanguages(data.find((item) => item.name.common == country).languages);
