@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "first_name": "پوریا",
+      "last_name": "صداقت",
+      "password": "pou7riy9a",
+      "email": "pouriyastk1@gmail.com",
+      "phone_number": "09389372901",
+      "id": 1
+    },
+    {
+      "first_name": "شیوا",
+      "last_name": "عبدولی",
+      "password": "sh7iv9di",
+      "email": "shivaabd@gmail.com",
+      "phone_number": "09385242072",
+      "id": 2
+    },
+    {
+      "first_name": "sfsd",
+      "last_name": "fdsfs",
+      "password": "sfds",
+      "phone_number": "09125544207",
+      "email": "sfsdfsf",
+      "id": 3
+    }
+  ]
+}
