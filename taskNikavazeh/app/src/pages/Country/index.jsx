@@ -9,7 +9,7 @@ import InfoCountry from 'base/InfoCountry';
 const Country = () => {
     const { country } = useParams();
     const [data, setData] = useState([]);
-    const [myCountry, setMyCountry] = useState({});
+    const [myCountry, setMyCountry] = useState('');
     const [myFlag, setMyFlag] = useState('');
     const [nativeName, setNativeName] = useState('');
     const [topLevelDomain, setTopLevelDomain] = useState('');
@@ -20,23 +20,25 @@ const Country = () => {
     const [keys, setKeys] = useState('');
     const [subRegion, setSubRegion] = useState('');
     const [capital, setCapital] = useState('');
-    const [borderCountries, setBorderCountries] = useState('');
+    const [borderCountries, setBorderCountries] = useState([]);
     const { mode } = useSelector(state => state.thisMode);
     useEffect(() => {
         getList();
     }, [])
+    useEffect(() => {
+        getList();
+    }, [country])
     if (mode == 'Dark Mode') {
         document.body.style.backgroundColor = 'hsl(0, 0%, 98%)';
     }
     else {
-
         document.body.style.backgroundColor = 'hsl(207, 26%, 17%)';
     }
     const getList = () => {
         axios({ url: 'https://restcountries.com/v3.1/all' })
             .then(({ data }) => {
                 setData(data);
-                setMyCountry(data.find((item) => item.name.common == country));
+                setMyCountry(data.find((item) => item.name.common == country).name.common);
                 setMyFlag(data.find((item) => item.name.common == country).flags.svg);
                 setNativeName(data.find((item) => item.name.common == country).name.nativeName[Object.keys(data.find((item) => item.name.common == country).name.nativeName)[0]].common);
                 setTopLevelDomain(data.find((item) => item.name.common == country).tld.toString());
@@ -47,7 +49,7 @@ const Country = () => {
                 setKeys(Object.keys(data.find((item) => item.name.common == country).languages));
                 setSubRegion(data.find((item) => item.name.common == country).subregion);
                 setCapital(data.find((item) => item.name.common == country).capital.toString());
-                setBorderCountries(data.find((item) => item.name.common == country).borders);
+                setBorderCountries(data.find((item) => item.name.common == country).borders || []);
             })
             .catch((erorr) => { console.log(erorr) })
     }
@@ -62,7 +64,7 @@ const Country = () => {
                         <FlagCountry myFlag={myFlag} country={country} />
                     </Col>
                     <Col xs={12} md={6} className='p-0'>
-                        <InfoCountry country={country} nativeName={nativeName} topLevelDomain={topLevelDomain} population={population} currencies={currencies} region={region} languages={languages} mode={mode} keys={keys} subRegion={subRegion} capital={capital} borderCountries={borderCountries} />
+                        <InfoCountry data={data} myCountry={myCountry} nativeName={nativeName} topLevelDomain={topLevelDomain} population={population} currencies={currencies} region={region} languages={languages} mode={mode} keys={keys} subRegion={subRegion} capital={capital} borderCountries={borderCountries} />
                     </Col>
                 </Row>
             </Container>
