@@ -1,24 +1,16 @@
 import BorderButton from './BorderButton';
-import StringInfo from './StringInfo';
+import CreateInfo from './CreateInfo';
 const InfoCountry = ({ data, myCountry, nativeName, topLevelDomain, population, currencies, region, languages, subRegion, capital, mode, borderCountries }) => {
+    const infoOne = [{ text: 'Native Name:', mount: nativeName }, { text: 'Population:', mount: population }, { text: 'Region:', mount: region }, { text: 'Sub Region:', mount: subRegion }, { text: 'Capital:', mount: capital }];
+    const infoTwo = [{ text: 'Top Level Domain:', mount: topLevelDomain }, { text: 'Currencies:', mount: currencies }, { text: 'Languages:', mount: languages }];
     return (
         <>
             <div>
                 <h3 className='m-4 m-sm-5 m-md-3 m-lg-4 m-xxl-5'>{myCountry}</h3>
             </div>
             <div className='d-sm-flex flex-sm-wrap justify-content-sm-around justify-content-md-evenly justify-content-lg-between px-lg-5 align-content-sm-center'>
-                <div className='mx-4 m-sm-0'>
-                    <StringInfo customClass={'my-1'} title={'Native Name:'} value={nativeName} />
-                    <StringInfo customClass={'my-1'} title={'Population:'} value={population} />
-                    <StringInfo customClass={'my-1'} title={'Region:'} value={region} />
-                    <StringInfo customClass={'my-1'} title={'Sub Region:'} value={subRegion} />
-                    <StringInfo customClass={'my-1'} title={'Capital:'} value={capital} />
-                </div>
-                <div className='m-4 m-sm-0'>
-                    <StringInfo customClass={'my-1'} title={'Top Level Domain:'} value={topLevelDomain} />
-                    <StringInfo customClass={'my-1'} title={'Currencies:'} value={currencies} />
-                    <StringInfo customClass={'my-1'} title={'Languages:'} value={languages} />
-                </div>
+                <CreateInfo myClass={'mx-4 m-sm-0'} arrInfo={infoOne} />
+                <CreateInfo myClass={'m-4 m-sm-0'} arrInfo={infoTwo} />
             </div>
             <div>
                 <p className='mx-4 m-sm-5 m-md-3 m-lg-4 m-xxl-5'>

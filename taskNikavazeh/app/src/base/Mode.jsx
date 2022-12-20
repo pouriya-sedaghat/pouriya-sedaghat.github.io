@@ -9,7 +9,7 @@ const Mode = () => {
     const [iconToggle, setIconToggle] = useState('');
     const [buttonToggle, setButtonToggle] = useState('btn-outline-dark');
     const isMode = () => {
-        if (mode == 'Dark Mode') {
+        if (mode === 'Dark Mode') {
             dispacher(CHANGE_MODE('Light Mode'));
             setClassMode('header-dark-mode');
             setIconToggle('-fill');

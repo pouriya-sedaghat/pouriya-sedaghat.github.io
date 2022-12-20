@@ -17,18 +17,14 @@ const Country = () => {
     const [currencies, setCurrencies] = useState('');
     const [region, setRegion] = useState('');
     const [languages, setLanguages] = useState('');
-    const [keys, setKeys] = useState('');
     const [subRegion, setSubRegion] = useState('');
     const [capital, setCapital] = useState('');
     const [borderCountries, setBorderCountries] = useState([]);
     const { mode } = useSelector(state => state.thisMode);
     useEffect(() => {
         getList();
-    }, [])
-    useEffect(() => {
-        getList();
-    }, [country])
-    if (mode == 'Dark Mode') {
+    })
+    if (mode === 'Dark Mode') {
         document.body.style.backgroundColor = 'hsl(0, 0%, 98%)';
     }
     else {
@@ -38,23 +34,23 @@ const Country = () => {
         axios({ url: 'https://restcountries.com/v3.1/all' })
             .then(({ data }) => {
                 setData(data);
-                setMyCountry(data.find((item) => item.name.common == country).name.common);
-                setMyFlag(data.find((item) => item.name.common == country).flags.svg);
-                setNativeName(data.find((item) => item.name.common == country).name.nativeName && Object.values(data.find((item) => item.name.common == country).name.nativeName)[0].common || '*Not Available*');
-                setPopulation(data.find((item) => item.name.common == country).population && data.find((item) => item.name.common == country).population.toLocaleString() || '*Not Available*');
-                setRegion(data.find((item) => item.name.common == country).region || '*Not Available*');
-                setSubRegion(data.find((item) => item.name.common == country).subregion || '*Not Available*');
-                setCapital(data.find((item) => item.name.common == country).capital && data.find((item) => item.name.common == country).capital.toString() || '*Not Available*');
-                setTopLevelDomain(data.find((item) => item.name.common == country).tld && data.find((item) => item.name.common == country).tld.toString() || '*Not Available*');
-                setCurrencies(data.find((item) => item.name.common == country).currencies && Object.values(data.find((item) => item.name.common == country).currencies)[0].name || '*Not Available*');
-                setLanguages(data.find((item) => item.name.common == country).languages && Object.values(data.find((item) => item.name.common == country).languages).join() || '*Not Available*');
-                setBorderCountries(data.find((item) => item.name.common == country).borders || []);
+                setMyCountry(data.find((item) => item.name.common === country).name.common);
+                setMyFlag(data.find((item) => item.name.common === country).flags.svg);
+                setNativeName((data.find((item) => item.name.common === country).name.nativeName && Object.values(data.find((item) => item.name.common === country).name.nativeName)[0].common) || '*Not Available*');
+                setPopulation((data.find((item) => item.name.common === country).population && data.find((item) => item.name.common === country).population.toLocaleString()) || '*Not Available*');
+                setRegion(data.find((item) => item.name.common === country).region || '*Not Available*');
+                setSubRegion(data.find((item) => item.name.common === country).subregion || '*Not Available*');
+                setCapital((data.find((item) => item.name.common === country).capital && data.find((item) => item.name.common === country).capital.toString()) || '*Not Available*');
+                setTopLevelDomain((data.find((item) => item.name.common === country).tld && data.find((item) => item.name.common === country).tld.toString()) || '*Not Available*');
+                setCurrencies((data.find((item) => item.name.common === country).currencies && Object.values(data.find((item) => item.name.common === country).currencies)[0].name) || '*Not Available*');
+                setLanguages((data.find((item) => item.name.common === country).languages && Object.values(data.find((item) => item.name.common === country).languages).join()) || '*Not Available*');
+                setBorderCountries(data.find((item) => item.name.common === country).borders || []);
             })
             .catch((erorr) => { console.log(erorr) })
     }
     return (
         <>
-            <Container fluid className={`${mode == 'Dark Mode' ? 'info-country' : 'info-country-dark'}`}>
+            <Container fluid className={`${mode === 'Dark Mode' ? 'info-country' : 'info-country-dark'}`}>
                 <Row>
                     <Col xs={12} className='px-3 py-4 p-sm-5'>
                         <BackHomePage mode={mode} />
