@@ -1,6 +1,6 @@
 import BorderButton from './BorderButton';
 import StringInfo from './StringInfo';
-const InfoCountry = ({ data, myCountry, nativeName, topLevelDomain, population, currencies, region, languages, keys, subRegion, capital, mode, borderCountries }) => {
+const InfoCountry = ({ data, myCountry, nativeName, topLevelDomain, population, currencies, region, languages, subRegion, capital, mode, borderCountries }) => {
     return (
         <>
             <div>
@@ -8,16 +8,16 @@ const InfoCountry = ({ data, myCountry, nativeName, topLevelDomain, population, 
             </div>
             <div className='d-sm-flex flex-sm-wrap justify-content-sm-around justify-content-md-evenly justify-content-lg-between px-lg-5 align-content-sm-center'>
                 <div className='mx-4 m-sm-0'>
-                    <StringInfo title={'Native Name:'} value={nativeName} />
-                    <StringInfo title={'Population:'} value={population} />
-                    <StringInfo title={'Region:'} value={region} />
-                    <StringInfo title={'Sub Region:'} value={subRegion} />
-                    <StringInfo title={'Capital:'} value={capital} />
+                    <StringInfo customClass={'my-1'} title={'Native Name:'} value={nativeName} />
+                    <StringInfo customClass={'my-1'} title={'Population:'} value={population} />
+                    <StringInfo customClass={'my-1'} title={'Region:'} value={region} />
+                    <StringInfo customClass={'my-1'} title={'Sub Region:'} value={subRegion} />
+                    <StringInfo customClass={'my-1'} title={'Capital:'} value={capital} />
                 </div>
                 <div className='m-4 m-sm-0'>
-                    <StringInfo title={'Top Level Domain:'} value={topLevelDomain} />
-                    <StringInfo title={'Currencies:'} value={currencies} />
-                    <StringInfo title={'Languages:'} value={languages[keys[0]] + (languages[keys[1]] && ',' + languages[keys[1]] || '') + (languages[keys[2]] && ',' + languages[keys[2]] || '')} />
+                    <StringInfo customClass={'my-1'} title={'Top Level Domain:'} value={topLevelDomain} />
+                    <StringInfo customClass={'my-1'} title={'Currencies:'} value={currencies} />
+                    <StringInfo customClass={'my-1'} title={'Languages:'} value={languages} />
                 </div>
             </div>
             <div>

@@ -1,7 +1,7 @@
-const StringInfo = ({ title, value }) => {
+const StringInfo = ({ customClass,title, value }) => {
     return (
         <>
-            <p className='my-1'><span>{title} </span><span>{value}</span></p>
+            <p className={`${customClass}`}><span>{title} </span><span>{value}</span></p>
         </>
     );
 }
