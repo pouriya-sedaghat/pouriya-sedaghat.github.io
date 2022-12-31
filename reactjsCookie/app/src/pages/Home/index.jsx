@@ -27,8 +27,8 @@ const Home = () => {
                     </Col>
                     <Col xs={12} className='px-5'>
                         <h3>result :</h3>
-                        {cookies.name && <Paragraph value={cookies.name} />}
-                        {cookies.password && <Paragraph value={cookies.password} />}
+                        {cookies.name && <Paragraph role={'UserName Is'} value={cookies.name} />}
+                        {cookies.password && <Paragraph role={'Password Is'} value={cookies.password} />}
                     </Col>
                 </Row>
             </Container>

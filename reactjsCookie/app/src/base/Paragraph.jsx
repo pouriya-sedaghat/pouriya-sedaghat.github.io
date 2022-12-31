@@ -1,7 +1,7 @@
-const Paragraph = ({ value }) => {
+const Paragraph = ({ role, value }) => {
     return (
         <>
-            <p>{value}</p>
+            <p>{role} : {value}</p>
         </>
     );
 }
