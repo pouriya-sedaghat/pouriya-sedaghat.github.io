@@ -3,15 +3,30 @@ import { useInputHandler } from 'hooks/useInputHandler';
 import { Container, Row, Col, Button } from 'reactstrap';
 import InputUser from 'base/InputUser';
 import Paragraph from 'base/Paragraph';
+import swal from 'sweetalert';
 const Home = () => {
-    const [userName, , userNameHandler] = useInputHandler('');
-    const [password, , passwordHandler] = useInputHandler('');
+    const [userName, setUserName, userNameHandler] = useInputHandler('');
+    const [password, setPassword, passwordHandler] = useInputHandler('');
     const [cookies, setCookie] = useCookies(['name', 'password']);
     const handler = () => {
+        if (userName === '' || userName.length <= 5) {
+            swal('Failed !', 'UserName Is Invalid ;)', 'error');
+            setUserName('');
+            setPassword('');
+            return;
+        }
+        else if (password === '' || password.length <= 5) {
+            swal('Failed !', 'Password Is Invalid ;)', 'error');
+            setUserName('');
+            setPassword('');
+            return;
+        }
+        else{
+            swal('Good Job !', 'Do It ;)', 'success');
+        }
         setCookie('name', userName, { path: '/' });
         setCookie('password', password, { path: '/' });
     };
-    console.log(cookies);
     return (
         <>
             <Container className='bg-dark text-light' fluid>
