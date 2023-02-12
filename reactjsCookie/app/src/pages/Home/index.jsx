@@ -7,26 +7,31 @@ import swal from 'sweetalert';
 const Home = () => {
     const [userName, setUserName, userNameHandler] = useInputHandler('');
     const [password, setPassword, passwordHandler] = useInputHandler('');
-    const [cookies, setCookie] = useCookies(['name', 'password']);
-    const handler = () => {
+    const [cookies, setCookie, removeCookie] = useCookies(['name', 'password']);
+    const setHandler = () => {
         if (userName === '' || userName.length <= 5) {
-            swal('Failed !', 'UserName Is Invalid ;)', 'error');
+            swal('Failed !', 'UserName Is Invalid ;)', 'error');
             setUserName('');
             setPassword('');
             return;
         }
         else if (password === '' || password.length <= 5) {
-            swal('Failed !', 'Password Is Invalid ;)', 'error');
+            swal('Failed !', 'Password Is Invalid ;)', 'error');
             setUserName('');
             setPassword('');
             return;
         }
-        else{
-            swal('Good Job !', 'Do It ;)', 'success');
+        else {
+            swal('Good Job !', 'Do It ;)', 'success');
         }
         setCookie('name', userName, { path: '/' });
         setCookie('password', password, { path: '/' });
     };
+    const removeHandler = () => {
+        removeCookie('name');
+        removeCookie('password');
+        swal('Good Job !', 'Do It ;)', 'success');
+    }
     return (
         <>
             <Container className='bg-dark text-light' fluid>
@@ -38,7 +43,8 @@ const Home = () => {
                         <InputUser type={'password'} defaultVal={'Password'} mount={password} onChangeHandler={passwordHandler} />
                     </Col>
                     <Col className='d-flex align-items-center' xs={2}>
-                        <Button onClick={handler} className='w-50' color='success'>Send !</Button>
+                        <Button onClick={setHandler} className='w-auto mx-1' color='success'>Send !</Button>
+                        <Button onClick={removeHandler} className='w-auto mx-1' color='danger'>Remove !</Button>
                     </Col>
                     <Col xs={12} className='px-5'>
                         <h3>result :</h3>
