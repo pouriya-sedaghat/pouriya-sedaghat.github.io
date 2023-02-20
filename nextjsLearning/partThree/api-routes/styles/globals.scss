@@ -1,0 +1,23 @@
+body {
+  background-color: black;
+
+  &,
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  li {
+    list-style-type: circle;
+    cursor: pointer;
+  }
+
+  div {
+    margin: 10px 0;
+  }
+
+  input {
+    caret-color: red;
+    color: blue;
+  }
+}
