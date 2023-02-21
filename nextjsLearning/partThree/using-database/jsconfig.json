@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+        "baseUrl": "using-database"
+    },
+    "include": [
+        "using-database"
+    ]
+}
