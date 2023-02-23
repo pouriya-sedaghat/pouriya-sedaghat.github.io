@@ -1,0 +1,21 @@
+body {
+    background-color: black;
+    color: white;
+
+    input {
+        width: 230px !important;
+        margin: 5px 0;
+        background-color: transparent !important;
+        caret-color: pink;
+    }
+
+    p {
+        margin: 0;
+    }
+    ul{
+        list-style-type: none;
+        li{
+            line-height: 50px;
+        }
+    }
+}
