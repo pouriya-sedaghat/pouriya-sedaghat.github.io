@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "canvas": "^2.11.0",
+    "image-data-uri": "^2.0.1",
+    "jimp": "^0.22.7",
+    "qr-image": "^3.2.0",
+    "qrcode": "^1.5.1",
+    "qrcode-reader": "^1.0.4",
+    "sharp": "^0.32.0"
+  }
+}
